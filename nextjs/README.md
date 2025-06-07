@@ -19,10 +19,12 @@
 
 ## Technical Stack
 
+- Next.js - App Router
 - Coding : TypeScript
-- Styling : MaterialUI (MUI)
-- Modals : react-toastify
-- Translation : next-intl
+- Styling : [Material UI](https://material-ui.com/) (MUI)
+- Modals : [react-toastify](https://www.npmjs.com/package/react-toastify)
+- Translation : [next-intl](https://next-intl.dev/). [Our setup here](https://next-intl.dev/docs/getting-started/app-router/without-i18n-routing).
+  > _Use [VSCode integration for next-intl](https://next-intl.dev/docs/workflows/vscode-integration) ([i18n Ally extension here](https://next-intl.dev/docs/workflows/vscode-integration#i18n-ally)) to manage messages within a single, large file. Don't split messages purely for organizational reasons._ - ([see more](https://next-intl.dev/docs/usage/configuration#messages))
 
 ## Next.js 15 App Router - Enterprise Folder Structure Guide
 
