@@ -9,7 +9,6 @@
     - [`lib/` vs `services/` vs `utils/`](#lib-vs-services-vs-utils)
     - [`app/api/` vs `services/` - Security & Architecture](#appapi-vs-services---security--architecture)
     - [Route Groups & Private Folders](#route-groups--private-folders)
-  - [MUI Theme Integration](#mui-theme-integration)
   - [Enterprise Companies Using These Patterns](#enterprise-companies-using-these-patterns)
   - [Best Practices for Scale](#best-practices-for-scale)
     - [Evolution Guidelines](#evolution-guidelines)
@@ -21,7 +20,7 @@
 ## Technical Stack
 
 - Coding : TypeScript
-- Styling : MaterialUI
+- Styling : MaterialUI (MUI)
 - Modals : react-toastify
 - Translation : next-intl
 
@@ -32,7 +31,7 @@
 ```
 src/
 ├── app/                    # App Router - Routes & API endpoints
-│   ├── layout.tsx          # Root layout
+│   ├── layout.tsx          # Root layout, import MUI theme.ts
 │   ├── page.tsx            # Home page (/)
 │   ├── loading.tsx         # Global loading UI
 │   ├── error.tsx           # Global error boundary
@@ -105,10 +104,33 @@ src/
 │   ├── api.types.ts        # API request/response types
 │   ├── auth.types.ts       # Authentication types
 │   └── index.ts            # Export barrel
-└── hooks/                  # Custom React hooks (optional)
-    ├── useAuth.ts
-    ├── useLocalStorage.ts
-    └── useDebounce.ts
+├── hooks/                  # Custom React hooks (optional)
+|   ├── useAuth.ts
+|   ├── useLocalStorage.ts
+|   └── useDebounce.ts
+├── theme.ts              # MUI : Client-side theme (colors, typography)
+└── theme.server.ts       # MUI : Server-safe theme elements  
+
+messages/                   # Translation with next-intl
+├── en.json                 # English translation (with VSCode exension, better to group all in same file)
+└── fr.json                 # French translation
+
+public/
+├── favicon.ico                # Main site icon (browser) (32x32px)
+├── apple-icon.png             # Icon for iOS/Safari (180x180px)
+├── icon-192x192.png           # Icon for PWA standard (small)
+├── icon-512x512.png           # Icon for PWA standard (large) 
+├── icon-maskable-192x192.png  # Icon for PWA adaptive Android (small)
+├── icon-maskable-512x512.png  # Icon for PWA adaptive Android (large)
+├── images/                    # Assets visuels de l'app
+│   ├── logo_my_app.png        # Some logos...
+│   └── logo_something.png
+├── icons/
+│   └── history.svg
+└── fonts/
+    ├── RedditSans-Regular.woff2
+    ├── RedditSans-Regular.ttf
+    └── RedditSans-Regular.otf
 ```
 
 ### **Key Distinctions & When to Use**
@@ -156,17 +178,6 @@ app/(marketing)/about/page.tsx → /about (not /marketing/about)
 **Private Folders `_name`:** Ignored by router, safe for colocation
 ```
 app/dashboard/_components/Chart.tsx → Not accessible via URL
-```
-
-## **MUI Theme Integration**
-
-For MUI + theme pattern:
-```
-src/
-├── theme.js              # Client-side theme (colors, typography)
-├── theme.server.js       # Server-safe theme elements  
-└── app/
-    └── layout.tsx        # Import and provide theme
 ```
 
 ## **Enterprise Companies Using These Patterns**
