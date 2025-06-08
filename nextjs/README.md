@@ -74,12 +74,14 @@ src/
 │   │   ├── Header/
 │   │   └── Navigation/
 │   └── features/           # Feature-specific components
+|       ├── someFeature/    # SomeFeatureCard, SomeFeatureForm, etc.
 │       ├── auth/           # AuthForm, LoginForm, etc.
 │       └── dashboard/      # DashboardWidget, UserTable, etc.
 ├── lib/                    # Core configurations & business logic
 │   ├── auth.ts             # Auth config (NextAuth, sessions)
 │   ├── db.ts               # Database client setup
 │   ├── supabase.ts         # Supabase client configuration
+|   ├── errors.ts           # Custom error classes
 │   ├── validations.ts      # Zod schemas, form validations
 │   ├── constants.ts        # App-wide constants
 │   └── utils.ts            # Business logic utilities
@@ -87,6 +89,12 @@ src/
 │   ├── admin/              # Admin operations
 │   │   ├── userAdmin.service.ts
 │   │   └── analytics.service.ts
+|   ├── someFeature/        # someFeature domain
+|   │   ├── someFeature.service.ts
+|   │   ├── someFeature.repository.ts
+|   │   ├── someFeature.types.ts
+|   │   ├── someFeature.hooks.ts
+|   │   └── index.ts
 │   ├── user/               # User operations  
 │   │   ├── profile.service.ts
 │   │   └── preferences.service.ts
@@ -102,11 +110,11 @@ src/
 │   ├── cn.ts              # Class name utility (clsx)
 │   └── parsers.ts         # Data parsing utilities
 ├── types/                  # TypeScript definitions
-│   ├── user.types.ts       # User-related interfaces
-│   ├── api.types.ts        # API request/response types
-│   ├── auth.types.ts       # Authentication types
+|   ├── api.types.ts        # Global API types (shared across services)
+|   ├── auth.types.ts       # Authentication types (used app-wide)
+|   ├── common.types.ts     # Common utility types
 │   └── index.ts            # Export barrel
-├── hooks/                  # Custom React hooks (optional)
+├── hooks/                  # Global Custom React hooks (optional)
 |   ├── useAuth.ts
 |   ├── useLocalStorage.ts
 |   └── useDebounce.ts
