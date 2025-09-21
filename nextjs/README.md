@@ -114,7 +114,7 @@ src/
 |   ├── auth.types.ts       # Authentication types (used app-wide)
 |   ├── common.types.ts     # Common utility types
 │   └── index.ts            # Export barrel
-├── hooks/                  # Global Custom React hooks (optional)
+├── hooks/                  # Global Custom React hooks
 |   ├── useAuth.ts
 |   ├── useLocalStorage.ts
 |   └── useDebounce.ts
